@@ -1,0 +1,29 @@
+<% @rest.each do |rest| %>
+
+<p>
+Name:<%= rest["name"]%>
+</p>
+<p>
+Address: <%= rest["address"]%>
+</p>
+<p>
+Tel: <%= rest["tel"]%>
+</p>
+<p>
+Category: <%= rest["category"]%>
+</p>
+<%= button_to "DETAIL", {controller: 'address', action: 'detail'}, {method: :get} %>
+<% end %>
+
+
+<p>
+<!-- リクエストパラメタを表示-->
+リクエストパラメタ: <%= @query%>
+</p>
+<!-- 生のjsonを表示-->
+<!--result: <%= @result%>-->
+</p>
+<p>
+  <!-- エラーメッセージを表示-->
+<!--message: <%= @message%>-->
+</p>
