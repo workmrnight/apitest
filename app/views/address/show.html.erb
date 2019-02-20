@@ -12,7 +12,8 @@ Tel: <%= rest["tel"]%>
 <p>
 Category: <%= rest["category"]%>
 </p>
-<%= button_to "DETAIL", {controller: 'address', action: 'detail'}, {method: :get} %>
+<%= button_to "DETAIL", {controller: 'detail', action: 'detail'}, {method: :get,　params: {id: 'e837527'}} %>
+
 <% end %>
 
 
@@ -21,7 +22,7 @@ Category: <%= rest["category"]%>
 リクエストパラメタ: <%= @query%>
 </p>
 <!-- 生のjsonを表示-->
-<!--result: <%= @result%>-->
+result: <%= @result%>
 </p>
 <p>
   <!-- エラーメッセージを表示-->
