@@ -1,16 +1,15 @@
 class DetailController < ApplicationController
   def detail
       logger.debug("ここまできてるよ")
-       logger.debug (params[:id]) 
+       logger.debug (params[:tel]) 
  require 'net/http'
-
+    logger.debug("ここ")
     # hash形式でパラメタ文字列を指定し、URL形式にエンコード
     # params = URI.encode_www_form([["areacode_l","AREAL2142"],["category_s","RSFST18008"]])
     #  @projects = Detail .order(params[:id])
-     puts @detail
-     @id = params[:id]
-     puts @id
-     params = URI.encode_www_form([["id","@id"]])
+     @tel = params[:tel]
+     logger.debug("ここま")
+     params = URI.encode_www_form([["id",@id]])
     # URIを解析し、hostやportをバラバラに取得できるようにする
     uri = URI.parse("https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=1079280779f1c4a933c7c98e388a6933&#{params}")
 
