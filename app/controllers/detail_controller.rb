@@ -1,10 +1,12 @@
 class DetailController < ApplicationController
   def detail
+      logger.debug("ここまできてるよ")
+       logger.debug (params[:id]) 
  require 'net/http'
+
     # hash形式でパラメタ文字列を指定し、URL形式にエンコード
     # params = URI.encode_www_form([["areacode_l","AREAL2142"],["category_s","RSFST18008"]])
     #  @projects = Detail .order(params[:id])
-     @detail = Detail.find
      puts @detail
      @id = params[:id]
      puts @id
@@ -59,7 +61,7 @@ class DetailController < ApplicationController
     end
   end
   
-  def detail
+  def test
     
   end
   
