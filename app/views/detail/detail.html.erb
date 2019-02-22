@@ -1,8 +1,18 @@
-<p>detail</p>
+<p>詳細画面</p>
 <!-- 生のjsonを表示-->
-<p>
-result: <%= @result%>
-</p>
+
+    
+<p>店名: <%=  @rest[0]["name"]%></p>
+<p>テンメイ: <%=  @rest[0]["name_kana"]%></p>
+<p>ジャンル: <%=  @rest[0]["category"]%></p>
+<p>エリア: <%=  @rest[0]["code"]["areaname_s"]%></p>
+<p>電話: <%=  @rest[0]["tel"]%></p>
+<p>住所: <%=  @rest[0]["address"]%></p>
+<p>営業時間:<%=  @rest[0]["opentime"]%></p>
+<p>休業日:<%=  @rest[0]["holiday"]%></p>
+<p>アクセス: <%= @rest[0]["access"]["station_exit"]%>から<%= @rest[0]["access"]["walk"]%>分</p>
+<p>URL:<a href =<%=  @rest[0]["url"]%>><%=  @rest[0]["url"]%></a></p>
+
 
 
 <p>

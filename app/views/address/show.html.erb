@@ -1,22 +1,18 @@
 <% @rest.each do |rest| %>
-
+<p>***********************************</p>
 <p>
 Name:<%= rest["name"]%>
 </p>
 <p>
 Address: <%= rest["address"]%>
 </p>
-<p>
-Tel: <%= rest["tel"]%>
-</p>
-<p>
-Category: <%= rest["category"]%>
-</p>
 
-<%= link_to "LINK", detail_detail_path(id:'e837527')%>
+<%= link_to "DETAIL", detail_detail_path(id: rest["id"])%>
+
+<p>***********************************</p>
 <% end %>
 
-
+<br><br><br><br><br>
 <p>
 <!-- リクエストパラメタを表示-->
 リクエストパラメタ: <%= @query%>
