@@ -1,28 +1,25 @@
 class DetailController < ApplicationController
   def detail
       logger.debug("ここまできてるよ")
-       logger.debug (params[:tel]) 
+      logger.debug (params[:id]) 
  require 'net/http'
     logger.debug("ここ")
     # hash形式でパラメタ文字列を指定し、URL形式にエンコード
     # params = URI.encode_www_form([["areacode_l","AREAL2142"],["category_s","RSFST18008"]])
-    #  @projects = Detail .order(params[:id])
-     @tel = params[:tel]
-     logger.debug("ここま")
+
+     @id = params[:id]
+     logger.debug("paramsだ")
      params = URI.encode_www_form([["id",@id]])
+     logger.debug(params)
     # URIを解析し、hostやportをバラバラに取得できるようにする
     uri = URI.parse("https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=1079280779f1c4a933c7c98e388a6933&#{params}")
 
     # リクエストパラメタを、インスタンス変数に格納
     @query = uri.query
-     http = Net::HTTP.new(uri.host, uri.port) 
-
+    http = Net::HTTP.new(uri.host, uri.port) 
     http.use_ssl = true 
-
     req = Net::HTTP::Get.new(uri.request_uri) 
     res = http.request(req) 
-    # puts res.code, res.msg 
-    # puts res.body 
     @result = JSON.parse(res.body) 
     @rest = @result["rest"]
     
@@ -35,12 +32,8 @@ class DetailController < ApplicationController
       when Net::HTTPSuccess
         # responseのbody要素をJSON形式で解釈し、hashに変換
         # # 表示用の変数に結果を格納
-        # @name = @result["rest"][0]["name"]
-        # @address = @result["rest"][0]["address"]
-        # @tel= @result["rest"][0]["tel"]
-        # @category = @result["rest"][0]["category"]
-        # @access = @result["rest"][0]["access"]
-        
+        # @name = @result["rest"
+
       # 別のURLに飛ばされた場合
       when Net::HTTPRedirection
         @message = "Redirection: code=#{res.code} message=#{res.message}"

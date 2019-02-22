@@ -12,7 +12,8 @@ Tel: <%= rest["tel"]%>
 <p>
 Category: <%= rest["category"]%>
 </p>
-<%= button_to "DETAIL", {controller: 'detail', action: 'detail'}, {method: :get,　params: {tel:'03-5283-5039'}} %>
+
+<%= link_to "LINK", detail_detail_path(id:'e837527')%>
 <% end %>
 
 

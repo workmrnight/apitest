@@ -4,6 +4,7 @@ class AddressController < ApplicationController
     # hash形式でパラメタ文字列を指定し、URL形式にエンコード
    # params = URI.encode_www_form({zipcode: '7830060'})
     params = URI.encode_www_form([["areacode_l","AREAL2142"],["category_s","RSFST18008"]])
+    logger.debug(params)
     # URIを解析し、hostやportをバラバラに取得できるようにする
     uri = URI.parse("https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=1079280779f1c4a933c7c98e388a6933&#{params}")
 
