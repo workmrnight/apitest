@@ -1,8 +1,8 @@
-<p>詳細画面</p>
+<h2>詳細画面</h2>
 <!-- 生のjsonを表示-->
+<img src=" <%=  @rest[0]["image_url"]["shop_image1"]%>">
+<img src=" <%=  @rest[0]["image_url"]["shop_image2"]%>">
 
-    
-<p>店名: <%=  @rest[0]["name"]%></p>
 <p>テンメイ: <%=  @rest[0]["name_kana"]%></p>
 <p>ジャンル: <%=  @rest[0]["category"]%></p>
 <p>エリア: <%=  @rest[0]["code"]["areaname_s"]%></p>
@@ -12,8 +12,9 @@
 <p>休業日:<%=  @rest[0]["holiday"]%></p>
 <p>アクセス: <%= @rest[0]["access"]["station_exit"]%>から<%= @rest[0]["access"]["walk"]%>分</p>
 <p>URL:<a href =<%=  @rest[0]["url"]%>><%=  @rest[0]["url"]%></a></p>
-
-
+<br>
+<br>
+<p>*****************************************************</p>
 
 <p>
 <!-- リクエストパラメタを表示-->
