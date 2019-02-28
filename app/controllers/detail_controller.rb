@@ -1,15 +1,12 @@
 class DetailController < ApplicationController
 
   def detail
-      logger.debug("ここまできてるよ")
-      logger.debug (params[:id]) 
+    logger.debug (params[:id]) 
  require 'net/http'
-    logger.debug("ここ")
     # hash形式でパラメタ文字列を指定し、URL形式にエンコード
     # params = URI.encode_www_form([["areacode_l","AREAL2142"],["category_s","RSFST18008"]])
 
      @id = params[:id]
-     logger.debug("paramsだ")
      params = URI.encode_www_form([["id",@id]])
      logger.debug(params)
     # URIを解析し、hostやportをバラバラに取得できるようにする
@@ -22,7 +19,7 @@ class DetailController < ApplicationController
     req = Net::HTTP::Get.new(uri.request_uri) 
     res = http.request(req) 
     #JSO
-    @result = JSON.parse(res.body) 
+    @result = JSON.parse(res.body)
     
     @rest = @result["rest"]
     # 必要項目をViewへ変数でわたす
@@ -30,7 +27,7 @@ class DetailController < ApplicationController
     @name_kana = @rest[0]["name_kana"]
     @category = @rest[0]["category"]
     @area = @rest[0]["code"]["areaname_s"]
-    @tel = @rest[0]["category"]
+    @tel = @rest[0]["tel"]
     @address = @rest[0]["address"]
     @opentime = @rest[0]["opentime"]
     @holiday = @rest[0]["holiday"]

@@ -1,27 +1,35 @@
+フリーワード検索欄
+<div id="nav-search">
+        <%= form_tag({:controller => 'address', :action => 'show'}, {:method => :get}) do %>
+            <p>
+                <%= text_field_tag :freeword, params[:freeword] %>
+                <%= submit_tag "検索" %>
+            </p>
+        <% end %>
+        <%= @msg%>
+</div>
+
+
+
+
+<p>***********************************</p>
+
 <% @rest.each do |rest| %>
 <p>***********************************</p>
 <p>
-Name:<%= rest["name"]%>
+店名:<%= rest["name"]%>
 </p>
 <p>
-Address: <%= rest["address"]%>
+住所: <%= rest["address"]%>
 </p>
 
 <%= link_to "DETAIL", detail_detail_path(id: rest["id"])%>
 
 <p>***********************************</p>
+
 <% end %>
 
 
-
-<div id="nav-search">
-        <%= form_tag '/', :method => 'get' do %>
-            <p>
-                <%= text_field_tag :search, params[:search] %>
-                <%= submit_tag "検索", :name => nil %>
-            </p>
-        <% end %>
-    </div><!-- nav-search -->
 
 
 <br><br><br><br><br>

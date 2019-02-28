@@ -18,7 +18,11 @@
 <% else %>
 <p>休業日:<%=  @holiday %></p>
 <% end %>
+<% if @station_exit.blank? %>
+<p>アクセス: 不明</p> 
+<% else %>
 <p>アクセス: <%= @station_exit %>から<%= @walk %>分</p>
+<% end %>
 <p>URL: <a href =<%= @hp %>>ホームページ</a></p>
 <br>
 <br>
