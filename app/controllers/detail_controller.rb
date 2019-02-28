@@ -1,4 +1,5 @@
 class DetailController < ApplicationController
+
   def detail
       logger.debug("ここまできてるよ")
       logger.debug (params[:id]) 
@@ -20,9 +21,23 @@ class DetailController < ApplicationController
     http.use_ssl = true 
     req = Net::HTTP::Get.new(uri.request_uri) 
     res = http.request(req) 
+    #JSO
     @result = JSON.parse(res.body) 
-    @rest = @result["rest"]
     
+    @rest = @result["rest"]
+    # 必要項目をViewへ変数でわたす
+    @name = @rest[0]["name"]
+    @name_kana = @rest[0]["name_kana"]
+    @category = @rest[0]["category"]
+    @area = @rest[0]["code"]["areaname_s"]
+    @tel = @rest[0]["category"]
+    @address = @rest[0]["address"]
+    @opentime = @rest[0]["opentime"]
+    @holiday = @rest[0]["holiday"]
+    @station_exit = @rest[0]["access"]["station_exit"]
+    @walk = @rest[0]["access"]["walk"]
+    @hp = @rest[0]["url"]
+  
     # 例外処理の開始
     begin
       # responseの値に応じて処理を分ける
@@ -51,10 +66,6 @@ class DetailController < ApplicationController
     rescue => e
       @message = "e.message"
     end
-  end
-  
-  def test
-    
   end
   
 end
