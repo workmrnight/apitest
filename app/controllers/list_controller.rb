@@ -1,4 +1,4 @@
-class AddressController < ApplicationController
+class ListController < ApplicationController
   def show
     
     require 'net/http'
@@ -7,7 +7,7 @@ class AddressController < ApplicationController
     if params[:freeword]
       
     @freeword = params[:freeword]
-     params = URI.encode_www_form([["freeword",@freeword],["category_s","RSFST18008"]])
+     params = URI.encode_www_form([["freeword",@freeword],["category_s","RSFST18008"],["hit_per_page",100]])
      logger.debug(params)
    
     #そうじゃないとき  
@@ -28,8 +28,8 @@ class AddressController < ApplicationController
     http.use_ssl = true 
 
     req = Net::HTTP::Get.new(uri.request_uri) 
-    res = http.request(req) 
-    # puts res.code, res.msg 
+    res = http.request(req) #かえってきたすべて
+    # puts res.code200　または400,404, res.msg 　コードで分岐。途中でreturn error のメッセージを返す。。
     # puts res.body 
     @result = JSON.parse(res.body) 
     @rest = @result["rest"]

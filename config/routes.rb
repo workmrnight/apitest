@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'address/show'
-  root to: 'address#show'
+  get 'list/show'
+  root to: 'list#show'
   
   # get 'detail/detail'
   get 'detail/detail/:id' => 'detail#detail',as:'detail_detail' # => はto  root/detail/detail # このパスが呼ばれたときの挙動
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # => 'detail#detail',as:'detail_detail'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-   get 'free' => 'address#free',as:'address_free'
+   get 'free' => 'list#free',as:'list_free'
 end
 
 

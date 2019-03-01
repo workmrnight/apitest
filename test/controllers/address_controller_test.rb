@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class AddressControllerTest < ActionDispatch::IntegrationTest
+class ListControllerTest < ActionDispatch::IntegrationTest
   test "should get show" do
-    get address_show_url
+    get list_show_url
     assert_response :success
   end
 

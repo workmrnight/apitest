@@ -1,13 +1,13 @@
 フリーワード検索欄
 <div id="nav-search">
-        <%= form_tag({:controller => 'address', :action => 'show'}, {:method => :get}) do %>
+        <%= form_tag({:controller => 'list', :action => 'show'}, {:method => :get}) do %>
             <p>
                 <%= text_field_tag :freeword, params[:freeword] %>
                 <%= submit_tag "検索" %>
             </p>
         <% end %>
-        <%= @msg%>
 </div>
+
 
 
 
