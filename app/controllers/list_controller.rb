@@ -7,7 +7,7 @@ class ListController < ApplicationController
     if params[:freeword]
       
     @freeword = params[:freeword]
-     params = URI.encode_www_form([["freeword",@freeword],["category_s","RSFST18008"],["hit_per_page",100]])
+     params = URI.encode_www_form([["freeword",@freeword],["category_s","RSFST18002"],["hit_per_page",100]])
      logger.debug(params)
    
     #そうじゃないとき  
@@ -32,6 +32,9 @@ class ListController < ApplicationController
     # puts res.code200　または400,404, res.msg 　コードで分岐。途中でreturn error のメッセージを返す。。
     # puts res.body 
     @result = JSON.parse(res.body) 
+    @err_code = @result["error"][0]["code"]
+    @err_msg = @result["error"][0]["message"]
+    logger.debug (@err_code)
     @rest = @result["rest"]
     
     # 例外処理の開始
