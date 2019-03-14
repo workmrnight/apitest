@@ -1,4 +1,5 @@
 class ListController < ApplicationController
+  PER = 10
   def show
     
     require 'net/http'
@@ -32,10 +33,18 @@ class ListController < ApplicationController
     # puts res.code200　または400,404, res.msg 　コードで分岐。途中でreturn error のメッセージを返す。。
     # puts res.body 
     @result = JSON.parse(res.body) 
-    @err_code = @result["error"][0]["code"]
-    @err_msg = @result["error"][0]["message"]
-    logger.debug (@err_code)
+    
+    if @result["error"].blank?
+      logger.debug ("No Error!")
+    else
+      @err_code = @result["error"][0]["code"]
+      @err_msg = @result["error"][0]["message"]
+      logger.debug (@err_code)
+    end
+    
     @rest = @result["rest"]
+    # このコントローラーでのページネーション設定がわかんない
+    # @rest = Rest.page(params[:page]).per(PER)
     
     # 例外処理の開始
     begin
