@@ -3,6 +3,7 @@ class ListController < ApplicationController
   def show
     
     require 'net/http'
+    require 'will_paginate/array'
     
     #フリーワード検索のとき
     if params[:freeword]
@@ -43,8 +44,7 @@ class ListController < ApplicationController
     end
     
     @rest = @result["rest"]
-    # このコントローラーでのページネーション設定がわかんない
-    # @rest = Rest.page(params[:page]).per(PER)
+    @rest = @rest.paginate(page: 1, per_page: PER)
     
     # 例外処理の開始
     begin

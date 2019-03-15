@@ -1,0 +1,15 @@
+<p>tst</p>
+
+<div id="nav-search">
+        <%= form_tag({:controller => 'list', :action => 'show'}, {:method => :get}) do %>
+            <p>
+                <%= text_field_tag :freeword, params[:freeword] %>
+                <%= submit_tag "検索" %>
+            </p>
+        <% end %>
+</div>
+
+<%= select :software, :keyword_id, 
+           Keyword.find_all.collect {|p| [ p.name, p.id ] }, 
+           :selected => @keyword_id, 
+           :include_blank => true %>

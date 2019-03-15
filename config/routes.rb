@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'main/index'    
+    
   get 'list/show'
   root to: 'list#show'
   
