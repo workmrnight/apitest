@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  get 'main/index'    
+  get 'main/index'
+  root to: 'main#index'
     
   get 'list/show'
-  root to: 'list#show'
+#   root to: 'list#show'
   
   # get 'detail/detail'
   get 'detail/detail/:id' => 'detail#detail',as:'detail_detail' # => はto  root/detail/detail # このパスが呼ばれたときの挙動

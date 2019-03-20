@@ -1,5 +1,5 @@
 class ListController < ApplicationController
-  PER = 3
+  PER = 5
   def show
     
     require 'net/http'
@@ -52,6 +52,7 @@ class ListController < ApplicationController
     end
     
     @rest = @result["rest"]
+    # ページネーション用
     @rest = @rest.paginate(page: @pagenate, per_page: PER)
     
     # 例外処理の開始
