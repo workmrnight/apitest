@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'main/index'
   root to: 'main#index'
     
-  get 'list/show'
+  get 'search/show'
 #   root to: 'list#show'
   
   # get 'detail/detail'
@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   # => 'detail#detail',as:'detail_detail'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-   get 'free' => 'list#free',as:'list_free'
+   get 'free' => 'search#free',as:'search_free'
+   get 'main/area'
 end
 
 

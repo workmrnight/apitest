@@ -1,6 +1,6 @@
 フリーワード検索欄
 <div id="nav-search">
-        <%= form_tag({:controller => 'list', :action => 'show'}, {:method => :get}) do %>
+        <%= form_tag({:controller => 'search', :action => 'show'}, {:method => :get}) do %>
             <p>
                 <%= text_field_tag :freeword, params[:freeword] %>
                 <%= submit_tag "検索" %>
@@ -8,7 +8,7 @@
         <% end %>
 </div>
 
-<%= will_paginate @rest %>
+
 <p>***********************************</p>
 <!--結果がヒットしなかった場合-->
 <% if @rest.blank? %>
@@ -35,6 +35,7 @@
 <% end %>
 
 <% end %>
+<%= will_paginate @rest %>
 
 
 

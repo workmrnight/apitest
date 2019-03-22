@@ -1,4 +1,4 @@
-class ListController < ApplicationController
+class SearchController < ApplicationController
   PER = 5
   def show
     
@@ -13,16 +13,23 @@ class ListController < ApplicationController
    
    @pref = params[:pref]
    @freeword = params[:freeword]
+   @freeCafe = params[:free]
+   logger.debug(@freeCafe)
     
     #フリーワード検索都道府県コードが入っているとき
     if !@freeword.blank? or !@pref.blank?
-    @freeword = params[:freeword]
-    @para = [["freeword",@freeword],["pref",@pref],["category_s","RSFST18002"],["hit_per_page",100]]
+      logger.debug("1")
+      @para = [["freeword",@freeword],["pref",@pref],["category_s","RSFST18002"],["hit_per_page",100]]
+    
+    elsif !@free.blank?
+    logger.debug("2")
+      @para = [["freeword",@freeCafe],["category_l_code","RSFST18000"],["category_s_code","RSFST18002"],["hit_per_page",100]]  
    
     #そうじゃないとき  
     else
     # hash形式でパラメタ文字列を指定し、URL形式にエンコード
    # params = URI.encode_www_form({zipcode: '7830060'})
+   logger.debug("3")
     @para = [["areacode_s","AREAS2115"],["category_s","RSFST18002"],["hit_per_page",100]]
   end
   
