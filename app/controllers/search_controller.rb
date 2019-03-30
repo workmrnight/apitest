@@ -21,7 +21,7 @@ class SearchController < ApplicationController
       logger.debug("1")
       @para = [["freeword",@freeword],["pref",@pref],["category_s","RSFST18002"],["hit_per_page",100]]
     
-    elsif !@free.blank?
+    elsif !@freeCafe.blank?
     logger.debug("2")
       @para = [["freeword",@freeCafe],["category_l_code","RSFST18000"],["category_s_code","RSFST18002"],["hit_per_page",100]]  
    
