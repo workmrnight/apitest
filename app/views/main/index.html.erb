@@ -1,4 +1,26 @@
 <h1>TOP PAGE</h1>
+<script>window.onload = onload();</script>
+
+
+<a class="btn btn-primary" href="#" role="button">Link</a>
+<button class="btn btn-primary" type="submit">Button</button>
+<input class="btn btn-primary" type="button" value="Input">
+<input class="btn btn-primary" type="submit" value="Submit">
+<input class="btn btn-primary" type="reset" value="Reset">
+
+
+<div class="dropdown">
+	<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+		ドロップダウン
+		<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu" role="menu">
+		<li role="presentation"><a href="#">リンクのリスト１</a></li>
+		<li role="presentation"><a href="#">リンクのリスト２</a></li>
+		<li role="presentation"><a href="#">リンクのリスト３</a></li>
+	</ul>
+</div>
+
 
 <p>フリーワード(カフェの定義広め検索)</p>
 <div id="free-search">
@@ -31,31 +53,46 @@
         <%= form_tag({:controller => 'search', :action => 'show'}, {:method => :get}) do %>
         <input type ="hidden" name="flag" value="1">
             <p>
-                <select name="pref" value="" onblur="myFnc(this.value)" >
-                    <option value=" " selected>選択してください</option>
-                     <optgroup label="関東">
-                        <option value="PREF13">東京</option>
-                        <option value="PREF12">千葉</option>
-                        <option value="PREF14">神奈川</option>
-                    </optgroup>
-                    <optgroup label="関西">
-                        <option value="PREF27">大阪</option>
-                        <option value="PREF28">兵庫</option>
-                        <option value="PREF26">京都</option>
-                    </optgroup>
+                <select id="pref" name="pref" value="" onblur="outFcs(this.value)" >
+                    <!--<option value=" " selected>選択してください</option>-->
+                    <!--<optgroup label="東北">-->
+                    <!--    <option value="PREF01">北海道</option>-->
+                    <!--    <option value="PREF02">青森県</option>-->
+                    <!--    <option value="PREF03">岩手県</option>-->
+                    <!--    <option value="PREF04">宮城県</option>-->
+                    <!--    <option value="PREF05">秋田県</option>-->
+                    <!--    <option value="PREF06">山形県</option>-->
+                    <!--    <option value="PREF07">福島県</option>-->
+                    <!--</optgroup>-->
+                    <!-- <optgroup label="関東">-->
+                    <!--    <option value="PREF08">茨城県</option>-->
+                    <!--    <option value="PREF09">栃木県</option>-->
+                    <!--    <option value="PREF10">群馬県</option>-->
+                    <!--    <option value="PREF11">東京都</option>-->
+                    <!--    <option value="PREF12">千葉県</option>-->
+                    <!--    <option value="PREF13">東京都</option>-->
+                    <!--    <option value="PREF14">神奈川県</option>-->
+                    <!--</optgroup>-->
+                    <!--    <optgroup label="関東">-->
+                    <!--    <option value="PREF08">茨城県</option>-->
+                    <!--    <option value="PREF09">栃木県</option>-->
+                    <!--    <option value="PREF10">群馬県</option>-->
+                    <!--    <option value="PREF11">東京都</option>-->
+                    <!--    <option value="PREF12">千葉県</option>-->
+                    <!--    <option value="PREF13">東京都</option>-->
+                    <!--    <option value="PREF14">神奈川県</option>-->
+                    <!--</optgroup>-->
+                    <!--<optgroup label="近畿">-->
+                    <!--    <option value="PREF27">大阪</option>-->
+                    <!--    <option value="PREF28">兵庫</option>-->
+                    <!--    <option value="PREF26">京都</option>-->
+                    <!--</optgroup>-->
                     </select>
                     
-                    <select id="wrap" name="areacode_l" value=this.value></select>
-                <!--<%#= select_tag 'pref', options_for_select(-->
-                <!--    [["選択してください",""],["北海道","PREF01"], ["青森県","PREF02"], ["岩手県","PREF03"], ["宮城県","PREF04"], ["秋田県","PREF05"],["山形県","PREF06"],["福島県","PREF07"],["茨城県","PREF08"],["栃木県","PREF09"],["群馬県","PREF10"],["埼玉県","PREF11"],["千葉県","PREF12"],["東京都","PREF13"],["神奈川県","PREF14"],["新潟県","PREF15"],["富山県","PREF16"],["石川県","PREF17"],["福井県","PREF18"],["山梨県","PREF19"],["長野県","PREF20"],["岐阜県","PREF21"],["静岡県","PREF22"],["愛知県","PREF23"],["三重県","PREF24"],["滋賀県","PREF25"],["京都府","PREF26"],["大阪府","PREF27"],["兵庫県","PREF28"],["奈良県","PREF29"],["和歌山県","PREF30"],["鳥取県","PREF31"],["島根県","PREF32"],["岡山県","PREF33"],["広島県","PREF34"],["山口県","PREF35"],["徳島県","PREF36"],["香川県","PREF37"],["愛媛県","PREF38"],["高知県","PREF39"],["福岡県","PREF40"],["佐賀県","PREF41"],["長崎県","PREF42"],["熊本県","PREF43"],["大分県","PREF44"],["宮崎県","PREF45"],["鹿児島県","PREF46"],["沖縄県","PREF47"]]) %>-->
-        
+                    <select id="areal" name="areacode_l" value=this.value></select>
                 <%= submit_tag "検索" %>
             </p>
         <% end %>
-
-<input type="button" value="提出" id="button1" onClick="myFnc()" >
-
-
 
 
            
