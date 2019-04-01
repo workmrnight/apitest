@@ -29,9 +29,11 @@
 <p>地域検索</p>
 <div id="area-search">
         <%= form_tag({:controller => 'search', :action => 'show'}, {:method => :get}) do %>
+        <input type ="hidden" name="flag" value="1">
             <p>
-                <select name="pref" value="" onblur="myFnc(value)" >
-                    <optgroup label="関東">
+                <select name="pref" value="" onblur="myFnc(this.value)" >
+                    <option value=" " selected>選択してください</option>
+                     <optgroup label="関東">
                         <option value="PREF13">東京</option>
                         <option value="PREF12">千葉</option>
                         <option value="PREF14">神奈川</option>
@@ -42,6 +44,8 @@
                         <option value="PREF26">京都</option>
                     </optgroup>
                     </select>
+                    
+                    <select id="wrap" name="areacode_l" value=this.value></select>
                 <!--<%#= select_tag 'pref', options_for_select(-->
                 <!--    [["選択してください",""],["北海道","PREF01"], ["青森県","PREF02"], ["岩手県","PREF03"], ["宮城県","PREF04"], ["秋田県","PREF05"],["山形県","PREF06"],["福島県","PREF07"],["茨城県","PREF08"],["栃木県","PREF09"],["群馬県","PREF10"],["埼玉県","PREF11"],["千葉県","PREF12"],["東京都","PREF13"],["神奈川県","PREF14"],["新潟県","PREF15"],["富山県","PREF16"],["石川県","PREF17"],["福井県","PREF18"],["山梨県","PREF19"],["長野県","PREF20"],["岐阜県","PREF21"],["静岡県","PREF22"],["愛知県","PREF23"],["三重県","PREF24"],["滋賀県","PREF25"],["京都府","PREF26"],["大阪府","PREF27"],["兵庫県","PREF28"],["奈良県","PREF29"],["和歌山県","PREF30"],["鳥取県","PREF31"],["島根県","PREF32"],["岡山県","PREF33"],["広島県","PREF34"],["山口県","PREF35"],["徳島県","PREF36"],["香川県","PREF37"],["愛媛県","PREF38"],["高知県","PREF39"],["福岡県","PREF40"],["佐賀県","PREF41"],["長崎県","PREF42"],["熊本県","PREF43"],["大分県","PREF44"],["宮崎県","PREF45"],["鹿児島県","PREF46"],["沖縄県","PREF47"]]) %>-->
         

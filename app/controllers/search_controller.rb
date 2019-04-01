@@ -12,14 +12,19 @@ class SearchController < ApplicationController
     end
    
    @pref = params[:pref]
+   @areacode_l = params[:areacode_l]
    @freeword = params[:freeword]
    @freeCafe = params[:free]
+   @flag = params[:flag]
    logger.debug(@freeCafe)
     
     #フリーワード検索都道府県コードが入っているとき
-    if !@freeword.blank? or !@pref.blank?
-      logger.debug("1")
-      @para = [["freeword",@freeword],["pref",@pref],["category_s","RSFST18002"],["hit_per_page",100]]
+     if @flag = 1
+       logger.debug("FLGつき")
+       @para = [["freeword",@freeword],["pref",@pref],["areacode_l",@areacode_l],["category_s","RSFST18002"],["hit_per_page",100]]
+    #!@freeword.blank? or !@pref.blank? or !@area_codel.blank?
+    #   logger.debug("1")
+    #   @para = [["freeword",@freeword],["pref",@pref],["area_codel",@area_codel],["category_s","RSFST18002"],["hit_per_page",100]]
     
     elsif !@freeCafe.blank?
     logger.debug("2")
